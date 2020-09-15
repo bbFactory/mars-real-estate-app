@@ -22,10 +22,10 @@ MarsRealEstate is a simple app using ViewModel & LiveData with Retrofit, Glide a
 <img width="250" alt = "show all" src = "https://user-images.githubusercontent.com/49539592/93212364-77cbea00-f79d-11ea-940a-39ef9b630ef7.gif">
 <br/>
 
-* **Showing only real estate for rent**
+* **Showing only real estate for <i>rent</i>**
 <img width="250" alt = "show rent" src = "https://user-images.githubusercontent.com/49539592/93212738-f3c63200-f79d-11ea-9d81-e3981336a930.gif">
 <br/>
 
-* **Showing only real estate for sale**
+* **Showing only real estate for <i>sale</i>**
 <img width="250" alt = "show sale" src = "https://user-images.githubusercontent.com/49539592/93213126-6df6b680-f79e-11ea-947e-01308f0016b6.gif">
 <br/>
