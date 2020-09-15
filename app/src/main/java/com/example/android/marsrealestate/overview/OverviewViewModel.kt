@@ -47,6 +47,11 @@ class OverviewViewModel : ViewModel() {
 
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+
+    val navigateToSelectedProperty: LiveData<MarsProperty>
+        get() = _navigateToSelectedProperty
+
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
      */
@@ -61,14 +66,21 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _status.value = MarsApiStatus.LOADING
-                val listResult = MarsApi.retrofitService.getProperties()
+                _properties.value = MarsApi.retrofitService.getProperties()
                 _status.value = MarsApiStatus.DONE
-                _properties.value = listResult
             } catch (t: Throwable) {
                 _status.value = MarsApiStatus.ERROR
                 _properties.value = ArrayList()
             }
         }
+    }
+
+    fun displayPropertyDetails(markProperty: MarsProperty) {
+        _navigateToSelectedProperty.value = markProperty
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
     }
 
     override fun onCleared() {
